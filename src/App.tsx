@@ -7,6 +7,7 @@ import './App.css'
 type ImageItem = {id: string, url: string}
 
 const randomImage = (): number => random(1, 123)
+const randomImageNiki = (): number => random(1, 20)
 const generateId = (): string => Math.random().toString(36).substr(2, 9)
 
 export const App = () => {
@@ -24,10 +25,23 @@ export const App = () => {
     ])
   }
 
+  const addNewNiki: MouseEventHandler<HTMLButtonElement> = () => {
+    const newImageItem = {
+      id: generateId(),
+      url: `/Niki/N${randomImageNiki()}.jpg`
+    }
+
+    setImages([
+      ...images,
+      newImageItem
+    ])
+  }
+
   return <>
     <main className='wrapper'>
-      <h1 className='title'>Zorritos</h1>
-      <button className='button-85' onClick={addNewFox}>Agregar mas zorritos 🩷</button>
+      <h1 className='title'>SnapDeck</h1>
+      <button className='button-85' onClick={addNewFox}>Agregar un zorrito 🩷</button>
+      <button className='button-85' onClick={addNewNiki}>Agregar un Niki 🥵</button>
       <section className='images-container'>
         {images.map(({id, url}) => (
           <div key={id} className='image-item'>
