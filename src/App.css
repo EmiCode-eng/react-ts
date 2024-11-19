@@ -87,3 +87,13 @@
   top: 0;
   border-radius: 10px;
 }
+
+@media (max-width: 450px) {
+    .images-container {
+        grid-template-columns: 1fr 1fr;
+        margin: 20px;
+    }
+    .image-item {
+        height: 200px;
+    }
+}
